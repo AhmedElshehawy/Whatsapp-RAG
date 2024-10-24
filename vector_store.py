@@ -34,5 +34,6 @@ def create_vector_db(texts, embedding=None, collection_name='chroma')    :
     proxy_embedding = EmbeddingProxy(embedding)
     
     db = Chroma(collection_name=collection_name, embedding_function=proxy_embedding, persist_directory=os.path.join('store/', collection_name))
-    db.aadd_documents(texts)
+    db.add_documents(texts)
+    return db
     

@@ -14,7 +14,7 @@ def list_files(file_extension, data_dir='./data'):
     for path in paths:
         yield str(path)
         
-def load_files(file_extension, data_dir='./data'):
+def load_files_text(file_extension, data_dir='./data'):
     file_extension = correct_file_extension(file_extension)
     docs = []
     for path in list_files(file_extension=file_extension, data_dir=data_dir):

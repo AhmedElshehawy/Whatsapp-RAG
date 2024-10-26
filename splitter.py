@@ -11,8 +11,8 @@ CHUNK_OVERLAP = os.environ.get('CHUNK_OVERLAP')
 
 def split_documents(docs):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
+        chunk_size=int(CHUNK_SIZE),
+        chunk_overlap=int(CHUNK_OVERLAP),
         length_function=len,
         is_separator_regex=False
     )

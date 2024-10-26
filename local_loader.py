@@ -19,7 +19,7 @@ def load_files_text(file_extension, data_dir='./data'):
     docs = []
     for path in list_files(file_extension=file_extension, data_dir=data_dir):
         print(f'Loading {path}')
-        loader = DATA_LOADERS[file_extension]
+        loader = DATA_LOADERS[file_extension](path)
         docs.extend(loader.load())
     return docs
     

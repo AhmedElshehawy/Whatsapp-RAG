@@ -13,7 +13,7 @@ _ = load_dotenv(find_dotenv())
 class EmbeddingProxy:
     def __init__(self, embedding) -> None:
         self.embedding = embedding
-        self.embed_delay = os.environ.get('EMBED_DELAY')
+        self.embed_delay = float(os.environ.get('EMBED_DELAY'))
         
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
         sleep(self.embed_delay)

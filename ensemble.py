@@ -18,7 +18,7 @@ def ensembel_retriever_from_docs(docs, embedding=None):
     
     bm25_retriever = BM25Retriever.from_texts([t.page_content for t in texts])
     
-    bm25_weight = os.environ.get('BM25_RETRIEVER_WEIGHT')
+    bm25_weight = float(os.environ.get('BM25_RETRIEVER_WEIGHT'))
     vs_weight = 1.0 - bm25_weight
     ensembel_retriever = EnsembleRetriever(retrievers=[bm25_retriever, vs_retriever], weights=[bm25_weight, vs_weight])
     return ensembel_retriever
